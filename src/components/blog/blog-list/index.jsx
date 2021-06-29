@@ -9,24 +9,23 @@ export default class BlogList extends Component {
     posts: []
  }
  
-   componentDidMount(){
- 
-     const getProducts = async () => {
+   componentDidMount =  async () => {
        
- 
-       let response = await fetch("http://localhost:3001/blogPosts/")
-       let posts = await response.json()
+      const apiUrl = process.env.REACT_APP_BE_URL
+       const response = await fetch(`${apiUrl}/blogPosts`)
+       console.log(response);
+       const posts = await response.json()
        console.log('products', posts )
-       this.setState({posts: posts})
-       
-   }
-   getProducts()
+       this.setState({posts})
+  
  
  
    }
+   
 
   render() {
     return (
+      
       <Row>
         {this.state.posts.map((post) => (
           <Col md={4} style={{ marginBottom: 50 }}>
