@@ -1,2 +1,1 @@
-# strive-blog
- 
+# Strive Blog Template
