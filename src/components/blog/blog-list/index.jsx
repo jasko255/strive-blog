@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-bootstrap";
+import { BACKEND_URL } from "../../../constants";
 import BlogItem from "../blog-item";
 
 export default class BlogList extends Component {
@@ -11,9 +12,9 @@ export default class BlogList extends Component {
  
    componentDidMount =  async () => {
        
-      const apiUrl = process.env.REACT_APP_BE_URL
+      const apiUrl = BACKEND_URL
        const response = await fetch(`${apiUrl}/blogPosts`)
-       console.log(response);
+       console.log('whatisit', response);
        const posts = await response.json()
        console.log('products', posts )
        this.setState({posts})
